@@ -197,6 +197,23 @@ console.log(`All Jersy numbers:`);
 for(const allData of y){
     console.log(`${allData.playerNm} jersy Number is: ${allData.jNumber}`);
 }
+//let cat = gameObject();
+//let combo = cat.home.players["Alan Anderson"];
+//console.log(combo);
+
+function playerStats (Pname){
+    let cat = gameObject();
+    if(Pname in cat.home.players){
+        return cat.home.players[Pname];
+    }
+    if (Pname in cat.away.players){
+        return cat.away.players[Pname];
+    }
+}
+const Pname = "DeSagna Diop";
+const Status = playerStats(Pname);
+console.log(`${Pname}'s Attributes are:`);
+console.log(Status);
 
 
 
