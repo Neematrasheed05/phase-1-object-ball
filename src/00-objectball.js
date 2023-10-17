@@ -115,7 +115,7 @@ console.log(homeTeamName())
 //let oo = gameObject();
 //console.log("object.keys(oo)=>", Object.keys(oo));
 //console.log("object.values(oo)=>", Object.values(oo));
-//c//onsole.log("object.entries(oo)=>", Object.entries(oo));
+//console.log("object.entries(oo)=>", Object.entries(oo));
  //let Name = oo.home.players["Alan Anderson"]["points"];
  //console.log(Name)
 function numberPointsScored(playerName){
@@ -140,12 +140,28 @@ function shoeSize (PlName){
         return x.away.players[PlName].shoe;
     }
 }
-const PlName = "Alan Anderson";
+const PlName = "Brendan Haywood";
 const size = shoeSize(PlName);
 console.log(`${PlName}: shoe size is:${size}.`);
 
 
+//let y = gameObject()
+//let TeamColor = y.home.colors
+//console.log(TeamColor)
 
+function teamColor (teamName){
+    let y = gameObject();
+    if(teamName === y.home.teamName){
+        return y.home.colors;
+    }
+    if(teamName === y.away.teamName){
+        return y.away.colors;
+    }
+    return "color not found!"
+}
+const teamName = "Brooklyn Nets";
+const colors = teamColor(teamName);
+console.log(`${teamName}'s color are: ${colors}.`);
 
 
 
