@@ -112,10 +112,10 @@ function homeTeamName (){
     return gameObject()['home']['teamName']
 }
 console.log(homeTeamName())
-//let oo = gameObject();
-//console.log("object.keys(oo)=>", Object.keys(oo));
-//console.log("object.values(oo)=>", Object.values(oo));
-//console.log("object.entries(oo)=>", Object.entries(oo));
+let oo = gameObject();
+console.log("object.keys(oo)=>", Object.keys(oo));
+console.log("object.values(oo)=>", Object.values(oo));
+console.log("object.entries(oo)=>", Object.entries(oo));
  //let Name = oo.home.players["Alan Anderson"]["points"];
  //console.log(Name)
 function numberPointsScored(playerName){
@@ -162,9 +162,41 @@ function teamColor (teamName){
 const teamName = "Brooklyn Nets";
 const colors = teamColor(teamName);
 console.log(`${teamName}'s color are: ${colors}.`);
+ 
 
+//let z = gameObject();
+//let a = z.away.teamName
+//console.log(a);
 
+function TeamName (){
+    let object = gameObject();
 
+        return [object.home.teamName, object.away.teamName];
+}
+console.log(TeamName());
+//let i = gameObject()
+//let verse = i.home.players["Alan Anderson"].number
+//console.log(verse)
+function playerNumbers (){
+    const c = gameObject();
+    const jersy = [];
+    for(const player in c.home.players){
+        const playerNm = player;
+        const jNumber = c.home.players[playerNm].number;
+        jersy.push({playerNm, jNumber});
+    }
+    for(const player in c.away.players){
+        const playerNm = player;
+        const jNumber = c.away.players[playerNm].number;
+        jersy.push({playerNm, jNumber});
+    }
+    return jersy;
+}
+const y = playerNumbers();
+console.log(`All Jersy numbers:`);
+for(const allData of y){
+    console.log(`${allData.playerNm} jersy Number is: ${allData.jNumber}`);
+}
 
 
 
