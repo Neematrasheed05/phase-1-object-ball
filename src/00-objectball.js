@@ -165,8 +165,8 @@ console.log(`${teamName}'s color are: ${colors}.`);
  
 
 //let z = gameObject();
-//let a = z.away.teamName
-//console.log(a);
+
+
 
 function TeamName (){
     let object = gameObject();
@@ -214,12 +214,66 @@ const Pname = "DeSagna Diop";
 const Status = playerStats(Pname);
 console.log(`${Pname}'s Attributes are:`);
 console.log(Status);
+//let a = z.away.players["Ben Gordon"].shoe
 
 
+function bigFoot (){
+    const Data = gameObject();
+    let largeShoe = 0;
+    let rebounds = 0;
+    for(const player in Data.home.players){
+        const p = Data.home.players[player];
+        if(p.shoe > largeShoe){
+            largeShoe = p.shoe;
+            rebounds = p.rebounds;
+        }
+    }
+    for(const player in Data.away.players){
+        const p = Data.away.players[player];
+        if(p.shoe > largeShoe){
+            largeShoe = p.shoe;
+            rebounds = p.rebounds;
+        }
+    }
+    return rebounds;
 
+    
+}
+const r = bigFoot();
+console.log(`Rebounds for the player with the largest shoe size: ${r}`)
 
-
-
+function mostPointsScored() {
+    // Access the game data object
+    const gameData = gameObject();
+  
+    let playerWithMostPoints = null;
+    let mostPoints = 0;
+  
+    // Iterate through the home team's players
+    for (const player in gameData.home.players) {
+      const playerData = gameData.home.players[player];
+      if (playerData.points > mostPoints) {
+        mostPoints = playerData.points;
+        playerWithMostPoints = player;
+      }
+    }
+  
+    // Iterate through the away team's players
+    for (const player in gameData.away.players) {
+      const playerData = gameData.away.players[player];
+      if (playerData.points > mostPoints) {
+        mostPoints = playerData.points;
+        playerWithMostPoints = player;
+      }
+    }
+  
+    return playerWithMostPoints;
+  }
+  
+  // Example usage:
+  const mostPointsPlayer = mostPointsScored();
+  console.log(`Player with the most points: ${mostPointsPlayer}`);
+  
 
 
 
